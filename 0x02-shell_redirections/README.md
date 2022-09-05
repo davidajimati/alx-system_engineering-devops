@@ -1,1 +1,1 @@
-This directory contains shell tasks on input and output redirection in shell
+shell input and output redirection including redirections
