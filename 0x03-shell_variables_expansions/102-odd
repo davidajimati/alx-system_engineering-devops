@@ -1,0 +1,2 @@
+#!/bin/bash
+cat "$1" | while read m | grep "$m" "$2" | sort -u
