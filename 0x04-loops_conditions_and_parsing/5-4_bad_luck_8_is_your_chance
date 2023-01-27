@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Prints Bad luck if count is 4, "Good luck if uit's 8, else "Best school
+c=1
+while [ $c -le 10 ]
+do
+    if [ "$c" -eq 4 ]
+    then
+        echo "Badluck"
+
+    elif [ "$c" -eq 8 ]
+    then
+        echo "Good luck"
+
+    else
+        echo "Best School"
+    fi
+    ((c++))
+done
