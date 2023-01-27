@@ -5,7 +5,7 @@ while [ $c -le 10 ]
 do
     if [ "$c" -eq 4 ]
     then
-        echo "badluck"
+        echo "bad luck"
 
     elif [ "$c" -eq 8 ]
     then
