@@ -6,5 +6,6 @@
 files=$(ls)
 for file in $files
 do
-    echo "$file"
+    name=$(echo "$file" | cut -d '-' -f2)
+    echo "$name"
 done
