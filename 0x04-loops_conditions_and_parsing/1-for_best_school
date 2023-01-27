@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Prints "Best School" 10 times using for loops
+for j in {0..9};
+do
+    echo "Best School"
+done
+export j
