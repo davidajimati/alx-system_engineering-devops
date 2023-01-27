@@ -5,11 +5,11 @@ while [ $c -le 10 ]
 do
     if [ "$c" -eq 4 ]
     then
-        echo "Badluck"
+        echo "badluck"
 
     elif [ "$c" -eq 8 ]
     then
-        echo "Good luck"
+        echo "good luck"
 
     else
         echo "Best School"
