@@ -5,7 +5,7 @@
     # user id
     # Home directory path for the user
 
-while IFS=: read -r username __ uid __ home
+while IFS=: read -r username _ _ uid _ _ home
 do
     echo "$username:$uid:$home"
 done < /etc/passwd
