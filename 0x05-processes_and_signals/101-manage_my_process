@@ -10,12 +10,13 @@ then
 
 elif [ "$com" == 'stop' ]
 then
-    pkill -f manage_my_process && echo "manage_my_process stopped"
+    kill "$pid"
+    echo "manage_my_process stopped"
     rm /var/run/my_process.pid
 
 elif [ "$com" == 'restart' ]
 then
-    pkill -f manage_my_process
+    kill "$pid" manage_my_process
     rm /var/run/my_process.pid
     ./manage_my_process &
     echo "$pid" > /var/run/my_process.pid
