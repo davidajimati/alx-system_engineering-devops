@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
-# regular expression must match a 10 digit phone number
-puts ARGV[0].scan(/^\d{10,10}$/).join
+#script should output: [SENDER],[RECEIVER],[FLAGS]
+puts ARGV[0].scan(/(?<=from:|to:|flags:)(.+?)(?=\])/).join(",")
