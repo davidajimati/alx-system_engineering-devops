@@ -5,8 +5,8 @@
 cp /etc/hosts ~/hosts.bac
 
 # append the new configurations
-127.0.0.2   localhost >> ~/hosts.bac
-8.8.8.8     facebook.com >> ~/hosts.bac
+echo "127.0.0.2	localhost" >> ~/hosts.bac
+echo "8.8.8.8	facebook.com" >> ~/hosts.bac
 
 #copy it back to the hosts file location
-cat ~/hosts.bac > /etc/hosts
+cp -f ~/hosts.bac /etc/hosts
