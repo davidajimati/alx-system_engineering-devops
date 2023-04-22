@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# SSH client configuration in your answer file to make server access easier
+
+touch ~/.ssh/config
+cat << EOF > ~/.ssh/config
+Host alx-server
+  Hostname 54.82.29.159
+  IdentityFile ~/.ssh/school
+  PasswordAuthentication no
+EOF
