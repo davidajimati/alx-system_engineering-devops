@@ -10,5 +10,5 @@ file_line { 'Identity file':
 # diable password login
 file_line { 'disable password login':
   path   => '/etc/ssh/ssh_config',
-  line   => '	PasswordAuthentication no'
+  line   => '	PasswordAuthentication no',
 }
