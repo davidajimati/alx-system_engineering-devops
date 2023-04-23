@@ -9,7 +9,6 @@ file_line { 'Identity file':
 
 # diable password login
 file_line { 'disable password login':
-  ensure => 'present',
   path   => '/etc/ssh/ssh_config',
   line   => '	PasswordAuthentication no'
 }
