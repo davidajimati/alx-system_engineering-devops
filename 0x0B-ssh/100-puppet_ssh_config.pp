@@ -1,4 +1,5 @@
-file {'~/.ssh/school'
+# sets up the config file to enable passwordless login
+file {'~/.ssh/config'
   ensure  => 'present',
   content => @(EOF)
 User ubuntu
@@ -6,5 +7,4 @@ User ubuntu
   IdentityFile ~/.ssh/school
   PasswordAuthentication no
 EOF
-
 }
