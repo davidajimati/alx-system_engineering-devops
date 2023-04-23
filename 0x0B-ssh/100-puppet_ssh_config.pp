@@ -1,14 +1,10 @@
-# sets up the config file to enable passwordless login
-
-# set configuration file to use /.ssh/school
+# Client configuration file (w/ Puppet)
 file_line { 'Identity file':
   ensure => 'present',
   path   => '/etc/ssh/ssh_config',
-  line   => '	Identityfile = ~/.ssh/school',
+  line   => '    IdentityFile ~/.ssh/school',
 }
-
-# diable password login
 file_line { 'disable password login':
-  path   => '/etc/ssh/ssh_config',
-  line   => '	PasswordAuthentication no',
+    path    => '/etc/ssh/ssh_config',
+    line    => '    PasswordAuthentication no',
 }
