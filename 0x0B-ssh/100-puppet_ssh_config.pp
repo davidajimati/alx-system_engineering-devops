@@ -1,5 +1,15 @@
 # sets up the config file to enable passwordless login
-file {'~/.ssh/config'
-  ensure  => 'present',
-  content => 'User ubuntu\  Hostname 54.82.29.159\  IdentityFile ~/.ssh/school\  PasswordAuthentication no',
+
+# set configuration file to use /.ssh/school
+file_line { 'Identity file':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '	Identityfile = ~/.ssh/school',
+}
+
+# diable password login
+file_line { 'disable password login':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '	PasswordAuthentication no'
 }
