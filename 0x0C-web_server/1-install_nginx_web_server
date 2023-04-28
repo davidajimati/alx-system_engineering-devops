@@ -7,3 +7,4 @@ ufw allow 'Nginx HTTP'
 chown -R "$USER:$USER" /var/www
 touch /var/www/html/index.html
 echo 'Hello World!' > /var/www/html/index.html
+service nginx restart
