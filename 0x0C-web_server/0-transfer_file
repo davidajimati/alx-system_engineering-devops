@@ -11,5 +11,5 @@ if [ "$#" -lt 3 ]; then
 elif [ "$#" -lt 4 ]; then
 	scp -o StrictHostKeyChecking=no "$filepath" "$username@$serverIP":~/
 else
-	scp -i "$sshPath" "$filepath" "$username@$serverIP":~/
+	scp -i "$sshPath" StrictHostKeyChecking=no "$filepath" "$username@$serverIP":~/
 fi
