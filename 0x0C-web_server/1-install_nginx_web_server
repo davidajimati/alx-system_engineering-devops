@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
 # Install nginx web server
-sudo apt update
+sudo apt -y update
 sudo apt install -y nginx
 sudo ufw allow 'Nginx HTTP'
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
 sudo service nginx start
-
-cat << EOF > ~/hello.conf
-server {
-  listen 80;
-  server_name localhost;
-
-  location / {
-    return 200 "Hello World!";
-  }
-}
-EOF
-sudo mv ~/hello.conf /etc/nginx/sites-available/
