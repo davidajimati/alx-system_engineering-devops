@@ -4,8 +4,8 @@
 #   - Create custom: home, redirect and 404 pages
 #   - adds a custom header 'X-Served-By' to the Nginx web server
 
-apt-get -y update
-apt-get install -y nginx
+apt-get update
+apt install -y nginx
 ufw allow 'Nginx HTTP'
 chown -R "$USER:$USER" /var/www
 sudo chown -R "$USER:$USER" /etc/nginx
