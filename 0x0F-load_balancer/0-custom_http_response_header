@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# This script configures a brand new ubuntu server to:
+#   - install Nginx web server
+#   - Create custom: home, redirect and 404 pages
+#   - adds a custom header 'X-Served-By' to the Nginx web server
+
+apt-get -y update
+apt-get install -y nginx
+ufw allow 'Nginx HTTP'
+chown -R "$USER:$USER" /var/www
+sudo chown -R "$USER:$USER" /etc/nginx
+
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+touch /etc/nginx/html/404.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
+
+printf %s "server {
+    listen 80;
+    listen [::]:80;
+    root /etc/nginx/html;
+    index index.html index.htm index.nginx-debian.html
+    server_name _;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    error_page 404 /404.html;
+    location = /etc/nginx/html/404.html {
+      internal;
+    }
+}" > /etc/nginx/sites-enabled/default
+
+printf %s "http {
+    ##
+    # Basic Settings
+    ##
+
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    add_header X-Served-By \"$hostname\";
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+}" > /etc/nginx/nginx.conf
+
+service nginx restart
