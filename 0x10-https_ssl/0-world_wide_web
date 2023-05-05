@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# This bash script display information about subdomains.
+
+function display_dns_record() {
+    local domain="$1"
+    local subdomain="$2"
+    local record_type="$3"
+    record=$(dig +short -t "$record_type" "$subdomain.$domain")
+    echo "$subdomain is a $record_type record and points to $record"
+}
+
+domain=$(echo "$1" | cut -d'.' -f2)
+subdomain=$(echo "$1" | cut -d'.' -f1)
+
+# subdomains to audit
+subdomains=("www" "lb-01" "web01" "web02")
+
+# if subdomain is provided, audit that only
+if [[ -n "$subdomain" ]]; then
+    display_dns_record "$domain" "$subdomain" "A"
+    exit 0
+fi
+
+for subdomain in "${subdomains[@]}"; do
+    display_dns_record "$domain" "$subdomain" "A"
+done
