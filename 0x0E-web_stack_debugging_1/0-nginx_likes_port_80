@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+printf %s "server {
+        listen 80;
+        listen [::]:80;
+
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+
+        # Make site accessible from http://localhost/
+        server_name localhost;
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files \$uri \$uri/ =404;
+                # Uncomment to enable naxsi on this location
+                # include /etc/nginx/naxsi.rules
+        }
+}" > /etc/nginx/sites-enabled/default
+
+sudo servuce nginx restart
