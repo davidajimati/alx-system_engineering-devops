@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script reconfigures nginx to listens to port 80
 
 printf %s "server {
         listen 80;
@@ -19,4 +20,4 @@ printf %s "server {
         }
 }" > /etc/nginx/sites-enabled/default
 
-sudo servuce nginx restart
+sudo service nginx restart
