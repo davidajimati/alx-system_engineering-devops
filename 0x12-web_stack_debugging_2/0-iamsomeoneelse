@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script accepts user name as argument,
+#   adds the new user runs the whoami command to show the new user
+
+useradd "$1"
+su - "$1"
+whoami
+exit
+
