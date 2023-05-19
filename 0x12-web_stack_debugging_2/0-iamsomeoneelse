@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 # This script accepts adds a new user to group
 useradd "$1"
-su - "$1"
-whoami
-exit
+su -c "whoami; exit" "$1"
