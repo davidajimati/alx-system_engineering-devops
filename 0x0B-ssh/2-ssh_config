@@ -5,7 +5,7 @@ touch ~/.ssh/config
 cat << EOF > ~/.ssh/config
 Host alx-server
   User ubuntu
-  Hostname 100.25.3.147
-  IdentityFile ~/.ssh/school
+  Hostname 18.207.141.82
+  IdentityFile ~/.ssh/id_rsa
   PasswordAuthentication no
 EOF
