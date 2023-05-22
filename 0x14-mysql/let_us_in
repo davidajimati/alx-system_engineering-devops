@@ -1,0 +1,7 @@
+# This command adds a new user to the SQL database with username `holberton_user` and password `***********`
+
+# create user with password
+CREATE USER 'holberton_user'@'localhost' IDENTIFIED BY '****************';
+# grant replication permissions
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.*
+TO 'replicant'@'slave_host' IDENTIFIED BY 'my_pwd';

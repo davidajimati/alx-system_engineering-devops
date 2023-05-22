@@ -1,0 +1,14 @@
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+
+# select the MySQL Server & Cluster option. Then, select mysql-5.7 and finally select Ok.
+sudo apt update
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
+sudo apt update
+sudo apt-cache policy mysql-server
+
+# After installing SQL, install mysql below:
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+# secure the instalation and remove test accouts
+sudo mysql_secure_installation
+
