@@ -1,13 +1,4 @@
 #!/usr/bin/env bash
-# dets the backup of all sql databases and creates a dump
-current_date=$(date +"%d-%m-%Y")
-
-backup_file="backup.sql"
-compressed_file="$current_date.tar.gz"
-
-user="root"
-password="$1"
-
-mysqldump -u "$user" -p"$password" --all-databases > "$backup_file"
-
-tar -czvf "$compressed_file"
+# gets the backup of all sql databases and creates a dumpi
+mysqldump -uroot -p"$1" --all-databases > backup.sql
+tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
