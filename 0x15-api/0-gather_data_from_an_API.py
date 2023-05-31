@@ -15,26 +15,20 @@ def get_name(id):
     data = {"id": id}
     values = parse.urlencode(data).encode('utf-8')
     url = 'https://jsonplaceholder.typicode.com/users'
+    link = request.Request(url, data=values, method="GET")
 
-    req1 = request.Request(url, data=values, method="GET")
-    resp_name = request.urlopen(req1)
+    resp_name = request.urlopen(link)
     user_name = json.loads(resp_name.read().decode())
-    return (user_name[0]["name"])
+    return (user_name[int(id)]["name"])
 
 
 def get_todo(id):
     """
     gets the todo list of a user.
     """
-    params = {"userId": id}
-    query = parse.urlencode(params).encode(
-        'utf-8')     # encodes the parameters to bytes
-    url = "https://jsonplaceholder.typicode.com/todos"
+    url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
 
-    # form standard url that can be accepted by the target API
-    req = request.Request(url, data=query, method="GET")
-    # query the API by opening the link
-    response = request.urlopen(req)
+    response = request.urlopen(url)
     # read, decode and load the response as a json object
     json_data = json.loads(response.read().decode())
     return (json_data)
@@ -42,9 +36,20 @@ def get_todo(id):
 
 def run_all(id):
     name = get_name(id)
-    # todo = get_todo(id)
+    todo_list = get_todo(id)
+    done = 0
+    total = 0
+    completed = []
 
-    print(name)
+    for item in todo_list:
+        total += 1
+        if item["completed"]:
+            completed.append(item["title"])
+            done += 1
+
+    print("Employee {} is done with tasks({}\\{}):" .format(name, done, total))
+    print("\n".join("\t" + item for item in completed))
+
 
 if __name__ == "__main__":
     """
