@@ -35,6 +35,9 @@ def get_todo(id):
 
 
 def run_all(id):
+    """
+    entry point into the program
+    """
     name = get_name(id)
     todo_list = get_todo(id)
     done = 0
