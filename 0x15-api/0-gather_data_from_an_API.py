@@ -20,7 +20,7 @@ def get_name(id):
 
     resp_name = request.urlopen(link)
     user_name = json.loads(resp_name.read().decode())
-    return (user_name[int(id)]["name"])
+    return user_name[int(id)].get("name")
 
 
 def get_todo(id):
@@ -47,7 +47,7 @@ def run_all(id):
 
     for item in todo_list:
         total += 1
-        if item["completed"]:
+        if item.get("completed"):
             completed.append(item["title"])
             done += 1
 
