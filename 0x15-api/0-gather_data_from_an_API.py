@@ -50,7 +50,7 @@ def run_all(id):
             done += 1
 
     print("Employee {} is done with tasks({}/{}):" .format(name, done, total))
-    print("\n".join("\t" + item for item in completed))
+    print("\n".join("\t " + item for item in completed))
 
 
 if __name__ == "__main__":
