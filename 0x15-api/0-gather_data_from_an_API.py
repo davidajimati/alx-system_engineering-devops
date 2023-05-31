@@ -3,8 +3,9 @@
 using REST API, for a given employee ID,
 returns information about his/her TODO list progress
 '''
-import sys
+
 import json
+import sys
 from urllib import parse, request
 
 
