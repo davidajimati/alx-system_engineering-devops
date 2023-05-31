@@ -49,7 +49,7 @@ def run_all(id):
             completed.append(item["title"])
             done += 1
 
-    print("Employee {} is done with tasks({}\\{}):" .format(name, done, total))
+    print("Employee {} is done with tasks({}/{}):" .format(name, done, total))
     print("\n".join("\t" + item for item in completed))
 
 
