@@ -13,11 +13,20 @@ def extract_to_json(id):
     Extracts user information and exports it to json
     """
     url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
-    # name_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(id)
+    filename = "{}.json".format(id)
 
     response = json.loads(request.urlopen(url).read())
-    data = {id: response}
-    print(data)
+
+    task = response.get('title')
+    completed = response.get('completed')
+    username = response.get('username')
+
+    data = []
+
+    data = {id: data}
+
+    # with open(filename, 'w') as file:
+    #     json.dump(file, response)
 
 
 if __name__ == "__main__":
