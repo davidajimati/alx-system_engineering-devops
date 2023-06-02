@@ -29,7 +29,7 @@ def extract_to_json(id):
     result = {id: data}
 
     with open(filename, 'w') as file:
-        json.dump(response, file)
+        json.dump(result, file)
 
 
 if __name__ == "__main__":
